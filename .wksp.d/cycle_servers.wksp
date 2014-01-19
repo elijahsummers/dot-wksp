@@ -1,0 +1,10 @@
+#!/bin/bash
+if [[ -d $HOME/Projects/devup && $(which vagrant) ]]; then
+	cd "$HOME/Projects/devup"
+	if [[ $(vagrant status | grep default.*running) ]]; then
+		echo "Restarting devup..."
+		vagrant ssh -c "sudo service httpd restart"
+	fi
+fi
+echo "Restarting apache..."
+sudo service apache2 restart

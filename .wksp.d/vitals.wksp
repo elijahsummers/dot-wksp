@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ ! -d "$HOME/Projects/devup/apps/vitals" ]; then
+    echo "Can't find project."
+    return 1
+fi
+cd "$HOME/Projects/devup/apps/vitals"
+# New terminal
+gnome-terminal
+# Open gvim and run project config file
+gvim #-S "$WKSP_DIR/patientlink.vim"
+# Keep an eye on the logs
+tail -f "$HOME/Projects/devup/log/error.log" \
+    "$HOME/Projects/devup/apps/vitals/app/resources/tmp/logs/"*

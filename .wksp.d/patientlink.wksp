@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ ! -d "$HOME/Projects/patientlink" ]; then
+	echo "Can't find project."
+	return 1
+fi
+cd "$HOME/Projects/patientlink"
+gnome-terminal
+gvim -S "$WKSP_DIR/patientlink.vim"
+tail -f "$HOME/Projects/logs/patientlink/error.log"
