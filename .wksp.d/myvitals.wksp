@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ ! -d "$HOME/Projects/devup/apps/myvitals" ]; then
+    echo "Can't find project."
+    return 1
+fi
+cd "$HOME/Projects/devup/apps/myvitals"
+# New terminal
+gnome-terminal
+# Open gvim and run project config file
+gvim -S "$WKSP_DIR/myvitals.vim"
+# Keep an eye on the logs
+tail -f "$HOME/Projects/devup/apps/myvitals/log/development.log"
